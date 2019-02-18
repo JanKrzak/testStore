@@ -1,7 +1,7 @@
 //jshint strict: false
 exports.config = {
 
-  allScriptsTimeout: 11000,
+    allScriptsTimeout: 11000,
 
     capabilities: {
         'browserName': 'chrome',
@@ -11,7 +11,7 @@ exports.config = {
         specs: ["./features/*.feature"]
     },
 
-  baseUrl: 'https://rekrutacjaqa2.xsolve.software/',
+    baseUrl: 'https://rekrutacjaqa2.xsolve.software/',
 
     // Cucumber configuration
     framework: 'custom',
@@ -26,7 +26,7 @@ exports.config = {
         timeout: 120000
     },
 
-    onPrepare: function() {
+    onPrepare: function () {
         // for non-angular page
         browser.ignoreSynchronization = true;
     },

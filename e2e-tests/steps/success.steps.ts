@@ -1,4 +1,4 @@
-import {Given, Then, When} from 'cucumber'
+import {Then} from 'cucumber'
 import {Home} from '../components/Home'
 import {Actions} from '../support/Actions'
 import {Cart} from '../components/Cart';
@@ -15,7 +15,7 @@ const expect = chai.expect;
 var {setDefaultTimeout} = require('cucumber');
 setDefaultTimeout(60 * 1000);
 
-Then(/^User is redirected to new page and can see success message$/, function () {
+Then(/^User is redirected to success page and can see success message$/, function () {
     return success.getHeaderName()
         .then((headerName) => expect(headerName).to.equal('Your order has been placed!'))
 });

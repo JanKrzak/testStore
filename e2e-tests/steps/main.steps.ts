@@ -1,27 +1,27 @@
 import {Given, When} from 'cucumber'
 import {Home} from '../components/Home'
 import {Actions} from '../support/Actions'
-import {browser} from 'protractor';
 import {Cart} from '../components/Cart';
+import {Product} from '../components/Product';
 
 const home = new Home();
 const actions = new Actions();
 const cart = new Cart();
+const product = new Product();
 var {setDefaultTimeout} = require('cucumber');
 setDefaultTimeout(60 * 1000);
 
-Given(/^User navigate to home page$/, function() {
-    return home.navigateTo();
+Given(/^User has "([^"]*)" quantity of "([^"]*)" in cart$/, function (quantity, productName) {
+    return home.navigateTo()
+        .then(() => home.clickOnProductByName(productName))
+        .then(() => product.setQuantityOfProduct(quantity))
+        .then(() => product.addProductToCart())
 });
 
-Given (/^User click on "([^"]*)"$/, function (productName) {
+When(/^User click on "([^"]*)"$/, function (productName) {
     return home.clickOnProductByName(productName);
 });
 
-When ('Stop', function () {
-    return browser.sleep(50000);
-});
-
-Given (/^User click on view cart$/, function () {
-   return cart.clickOnViewCart();
+When(/^User click on view cart$/, function () {
+    return cart.clickOnViewCart();
 });

@@ -4,24 +4,25 @@ Feature: Order products
   I want to buy product as a guest
 
   Scenario Outline: User order one product as a guest
-    Given User navigate to home page
-    Given User click on "Test product 2"
-    Given User add "5" product to cart
-    Given User click on cart details
-    Given User click on view cart
-    Given User checkout with added products
-    Given User checkout as a Guest
-    Given User click on continue account button
-    Given User fill in personal information: "<First Name>", "<Last Name>", "<Email>", "<Telephone>", "<Company>", "<Address>", "<City>", "<Post Code>", "<State>"
-    Given User click on continue button
-    Given User accept shipping method
-    Given User select agree terms and conditions
-    Given User click on continue payment button
-    Then Order summary contains the correct products and price
-    Given User confirm order
-    Then User is redirected to new page and can see success message
-    When Stop
+    Given User has "5" quantity of "Test product 2" in cart
+    When User click on cart
+    When User click on view cart
+    When User proceed to checkout with added products
+    When User continue as a Guest
+    When User fill in personal information: "<First Name>", "<Last Name>", "<Email>", "<Telephone>", "<Company>", "<Address>", "<City>", "<Post Code>", "<State>"
+    When User accept shipping method
+    When User select agree terms and conditions
+    When User click on continue payment button
+    Then Order summary contains the correct products name
+    Then Order summary contains the correct model name
+    Then Order summary contains the correct quantity
+    Then Order summary contains the correct unit price
+    Then Order summary contains the correct total price
+    Then Order contains the correct flat shipping rate
+    Then Order contains the correct total price with shipping rate
+    When User confirm order
+    Then User is redirected to success page and can see success message
 
     Examples:
-    | First Name | Last Name | Email | Telephone | Company | Address | City | Post Code | State |
-    | Jan |  Kowalski | jan.kowalski@wp.pl | +48664569236 | Technology | Nowy Swiat 26 | Wroclaw | 50-537 | Dolnoslaskie |
+      | First Name | Last Name | Email              | Telephone    | Company    | Address       | City    | Post Code | State        |
+      | Jan        | Kowalski  | jan.kowalski@wp.pl | +48664569236 | Technology | Nowy Swiat 26 | Wroclaw | 50-537    | Dolnoslaskie |

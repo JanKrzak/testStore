@@ -1,9 +1,9 @@
-import { browser, $, element, by } from "protractor";
+import {browser, by} from 'protractor';
 
 export class Home {
 
     public navigateTo() {
-      //  browser.ignoreSynchronisation = true;
+        //  browser.ignoreSynchronisation = true;
         return browser.get(browser.baseUrl);
     }
 
