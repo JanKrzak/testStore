@@ -9,7 +9,7 @@ export class Success {
 
     public getHeaderName() {
         return browser.wait(this.until.visibilityOf(this.successPage), 5000, 'Element taking too long to appear in the DOM')
-            .then(() => this.headerName.getText())
+            .then(() => this.headerName.getText());
 
     }
 

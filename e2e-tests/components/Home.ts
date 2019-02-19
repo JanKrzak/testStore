@@ -3,7 +3,6 @@ import {browser, by} from 'protractor';
 export class Home {
 
     public navigateTo() {
-        //  browser.ignoreSynchronisation = true;
         return browser.get(browser.baseUrl);
     }
 

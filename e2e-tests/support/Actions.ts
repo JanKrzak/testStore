@@ -1,7 +1,4 @@
 import {ElementFinder} from 'protractor';
-import {Product} from '../components/Product'
-
-const product = new Product();
 
 export class Actions {
 
